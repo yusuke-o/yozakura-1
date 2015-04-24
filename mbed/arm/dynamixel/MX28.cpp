@@ -268,7 +268,8 @@ float MX28::GetCurrent (void) {
     }
     char data[2];
     int ErrorCode = read(_ID, MX28_REG_CURRENT, 2, data);
-    float current = ((data[0]+(data[1] << 8))-0x8FF)*0.0045;
+    short nama = (data[0]+(data[1] << 8));
+    float current = nama*10;
     return(current);
 }
 
